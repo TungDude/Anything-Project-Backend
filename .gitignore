@@ -1,0 +1,6 @@
+# files
+anything-flask/.env
+anything-flask/**/*/__pycache__
+
+# folders
+/venv

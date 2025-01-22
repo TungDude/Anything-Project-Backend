@@ -1,11 +1,10 @@
 # from . import db
-from mongoengine import Document, StringField, IntField
+from mongoengine import Document, StringField
 
 class User(Document):
     # Fields that represent the user data
     username = StringField(required=True, unique=True)
-    email = StringField(required=True, unique=True)
-    age = IntField(required=False)
+    password = StringField(required=True)
 
     # Optional: define a string representation of the model
     def __str__(self):
@@ -16,6 +15,4 @@ class User(Document):
         return {
             'id': str(self.id),  # Convert ObjectId to string
             'username': self.username,
-            'email': self.email,
-            'age': self.age
         }

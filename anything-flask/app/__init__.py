@@ -12,6 +12,7 @@ def create_app(config_object='instance.config.Config'):
 
     # Enable CORS (Cross-Origin Resource Sharing) for the frontend (React) to interact with Flask
     CORS(app, origins=["http://localhost:3000"])
+    # CORS(app)
 
     # Load environment variables from the .env file
     load_dotenv()
@@ -28,6 +29,6 @@ def create_app(config_object='instance.config.Config'):
 
     @app.route('/')
     def home():
-        return "MongoEngine is connected!"
+        return "Flask server is running! MongoEngine is connected!"
 
     return app

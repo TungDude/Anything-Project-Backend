@@ -9,8 +9,8 @@ main = Blueprint('main', __name__)
 def test_api():
     return APIHelper.test_api()
 
-# POST /api/users - Create a new user
-@main.route('/api/users', methods=['POST'])
+# POST /api/users/create - Create a new user
+@main.route('/api/users/create', methods=['POST'])
 def create_new_user():
     body = request.get_json()
     return DBHelper.create_user(body)

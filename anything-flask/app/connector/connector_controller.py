@@ -1,4 +1,5 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
+from flask_jwt_extended import get_jwt_identity, jwt_required
 from .helper.db_helper import DBHelper
 from .helper.api_helper import APIHelper
 
@@ -8,6 +9,15 @@ main = Blueprint('main', __name__)
 @main.route('/api/test', methods=['GET'])
 def test_api():
     return APIHelper.test_api()
+
+# Test Protected route
+@main.route('/api/protected', methods=['GET'])
+@jwt_required()
+def test_protected():
+    current_user = get_jwt_identity()
+    return jsonify({
+        'message': f'Welcome, {current_user}'
+    }), 200
 
 # POST /api/users/create - Create a new user
 @main.route('/api/users/create', methods=['POST'])

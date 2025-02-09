@@ -14,3 +14,9 @@ def test_api():
 def create_new_user():
     body = request.get_json()
     return DBHelper.create_user(body)
+
+# POST /api/users/login - Login a user
+@main.route('/api/users/login', methods=['POST'])
+def login_user():
+    body = request.get_json()
+    return DBHelper.login_user(body)

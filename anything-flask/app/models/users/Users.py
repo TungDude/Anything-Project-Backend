@@ -8,7 +8,7 @@ class User(Document):
 
     # Optional: define a string representation of the model
     def __str__(self):
-        return f"User({self.username}, {self.email}, {self.age})"
+        return f"User({self.username})"
     
     def to_json(self):
         # Helper method to convert the object into a JSON-serializable dictionary
